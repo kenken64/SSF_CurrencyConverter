@@ -2,10 +2,15 @@ package vttp2022b2.app.CurrencyConverter.models;
 
 import java.math.BigDecimal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import jakarta.json.JsonNumber;
 import jakarta.json.JsonObject;
 
 public class Query {
+    private static final Logger logger = LoggerFactory.getLogger(Query.class);
+
     private String from;
     private String to;
     private BigDecimal amount;
@@ -35,13 +40,14 @@ public class Query {
     }
 
     public static Query createJson(JsonObject o) {
+        logger.info("createJson query");
         Query q = new Query();
-        JsonObject queryObj = o.getJsonObject("query");
-        String toStr = queryObj.getString("To");
+        // JsonObject queryObj = o.getJsonObject("query");
+        String toStr = o.getString("to");
         q.to = toStr;
-        String fromStr = queryObj.getString("From");
+        String fromStr = o.getString("from");
         q.from = fromStr;
-        JsonNumber jsNum = queryObj.getJsonNumber("amount");
+        JsonNumber jsNum = o.getJsonNumber("amount");
         q.amount = jsNum.bigDecimalValue();
         return q;
     }

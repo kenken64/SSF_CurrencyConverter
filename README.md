@@ -4,6 +4,12 @@
 mvn spring-boot:run
 ```
 
+```
+export FIXER_CURRENCY_API_KEY=
+set FIXER_CURRENCY_API_KEY=
+
+```
+
 Json data 
 
 ```
