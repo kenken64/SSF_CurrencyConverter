@@ -18,6 +18,16 @@ public class Currency {
     private String success;
     private String date;
     private BigDecimal result;
+    private BigDecimal amount;
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
     private Query query;
 
     public String getSuccess() {
