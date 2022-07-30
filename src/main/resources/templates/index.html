@@ -32,22 +32,18 @@
               <div class="input-group">
                 <div class="form-outline">
                   <select class="mdb-select" name="from" id="from">
-                    <option value="USD">United States Dollar</option>
-                    <option value="GBP">British Pound</option>
-                    <option value="SGD">Singapore Dollar</option>
-                    <option value="JPY">Japanese Yen</option>
-                    <option value="AUD">Australian Dollar</option>
+                    <option th:each="country, iterStat : ${lsOfCountryCode}" th:value="${lsOfCountryCodeVal[iterStat.index]}">
+                      <span th:text="${country}"></span>
+                   </option>
                   </select>
                 </div>
                 <div class="form-outline"><br /></div>
 
                 <div class="form-outline">
                   <select class="mdb-select" name="to" id="to">
-                    <option value="USD">United States Dollar</option>
-                    <option value="GBP">British Pound</option>
-                    <option value="SGD">Singapore Dollar</option>
-                    <option value="JPY">Japanese Yen</option>
-                    <option value="AUD">Australian Dollar</option>
+                    <option th:each="country, iterStat : ${lsOfCountryCode}" th:value="${lsOfCountryCodeVal[iterStat.index]}">
+                      <span th:text="${country}"></span>
+                   </option>
                   </select>
                 </div>
                 <div class="form-outline"><br /></div>

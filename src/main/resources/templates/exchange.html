@@ -33,10 +33,14 @@
           </div>
           <div class="justify-content-center">
             <label class="form-label">Amount</label>
-            <p data-th-text="${currency.query.amount}"></p>
+            <p>
+              <span data-th-text="${fromCurry}">&nbsp;</span><span data-th-text="${currency.query.amount}"></span>
+            </p>
             <br />
             <label class="form-label">Converted Amount</label>
-            <p data-th-text="${currency.result}"></p>
+            <p>
+              <span data-th-text="${toCurry}">&nbsp;</span><span data-th-text="${currency.result}"></span>
+            </p>
             <br />
             <form method="GET" action="/">
               <button type="submit" class="btn btn-warning btn-lg">Back</button>

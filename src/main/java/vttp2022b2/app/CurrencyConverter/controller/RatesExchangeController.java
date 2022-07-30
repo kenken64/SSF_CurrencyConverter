@@ -3,6 +3,8 @@ package vttp2022b2.app.CurrencyConverter.controller;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import vttp2022b2.app.CurrencyConverter.services.CurrencyAPIService;
 @Controller
 @RequestMapping(path = "/exchange")
 public class RatesExchangeController {
+    private static final Logger logger = LoggerFactory.getLogger(RatesExchangeController.class);
 
     @Autowired
     private CurrencyAPIService currySvc;
@@ -34,7 +37,11 @@ public class RatesExchangeController {
             model.addAttribute("currency", new Currency());
             return "exchange";
         }
+        logger.info("<<<<<" + q.getFrom() + "****" + q.getTo());
         model.addAttribute("currency", optCurry.get());
+        model.addAttribute("fromCurry", q.getFrom());
+        model.addAttribute("toCurry", q.getTo());
         return "exchange";
     }
+    
 }
